@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "ARM",
+            "includePath": [
+                "C:\\Keil_v5\\ARM\\ARMCC\\include",
+                "${workspaceFolder}\\include",
+                "${workspaceFolder}\\libraries\\Official\\CMSIS\\Include",
+                "${workspaceFolder}\\libraries\\Official\\Device\\Nuvoton\\NUC230_240\\Include",
+                "${workspaceFolder}\\libraries\\Official\\StdDriver\\inc",
+                "${workspaceFolder}\\libraries\\User\\inc"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "browse": {
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "compilerArgs": []
+        }
+    ],
+    "version": 4
+}

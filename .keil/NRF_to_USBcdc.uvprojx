@@ -7,9 +7,10 @@
 
   <Targets>
     <Target>
-      <TargetName>Target 1</TargetName>
+      <TargetName>Project</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pCCUsed>5060750::V5.06 update 6 (build 750)::ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
         <TargetCommonOption>
@@ -133,11 +134,11 @@
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
             <Capability>1</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -257,17 +258,17 @@
                 <Size>0x0</Size>
               </XRAM>
               <OCR_RVCT1>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT1>
               <OCR_RVCT2>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT2>
               <OCR_RVCT3>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT3>
@@ -277,7 +278,7 @@
                 <Size>0x20000</Size>
               </OCR_RVCT4>
               <OCR_RVCT5>
-                <Type>0</Type>
+                <Type>1</Type>
                 <StartAddress>0x0</StartAddress>
                 <Size>0x0</Size>
               </OCR_RVCT5>
@@ -337,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath></IncludePath>
+              <IncludePath>C:\Keil_v5\ARM\ARMCC\include;..\include;..\libraries\Official\CMSIS\Include;..\libraries\Official\Device\Nuvoton\NUC230_240\Include;..\libraries\Official\StdDriver\inc;..\libraries\User\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -379,7 +380,124 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Source Group 1</GroupName>
+          <GroupName>CMSIS</GroupName>
+          <Files>
+            <File>
+              <FileName>system_NUC230_240.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\Official\Device\Nuvoton\NUC230_240\Source\system_NUC230_240.c</FilePath>
+            </File>
+            <File>
+              <FileName>startup_NUC230_240.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\libraries\Official\Device\Nuvoton\NUC230_240\Source\ARM\startup_NUC230_240.s</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Libraries_Official</GroupName>
+          <Files>
+            <File>
+              <FileName>clk.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\Official\StdDriver\src\clk.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\Official\StdDriver\src\gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>retarget.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\Official\StdDriver\src\retarget.c</FilePath>
+            </File>
+            <File>
+              <FileName>rtc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\Official\StdDriver\src\rtc.c</FilePath>
+            </File>
+            <File>
+              <FileName>spi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\Official\StdDriver\src\spi.c</FilePath>
+            </File>
+            <File>
+              <FileName>sys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\Official\StdDriver\src\sys.c</FilePath>
+            </File>
+            <File>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\Official\StdDriver\src\timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\Official\StdDriver\src\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>usbd.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\Official\StdDriver\src\usbd.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Libraries_User</GroupName>
+          <Files>
+            <File>
+              <FileName>fifo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\User\src\fifo.c</FilePath>
+            </File>
+            <File>
+              <FileName>NRF_P2P.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\User\src\NRF_P2P.c</FilePath>
+            </File>
+            <File>
+              <FileName>NRF24L01.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\User\src\NRF24L01.c</FilePath>
+            </File>
+            <File>
+              <FileName>vMemAlloc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\libraries\User\src\vMemAlloc.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Source</GroupName>
+          <Files>
+            <File>
+              <FileName>main.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\main.c</FilePath>
+            </File>
+            <File>
+              <FileName>project.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\project.c</FilePath>
+            </File>
+            <File>
+              <FileName>irq.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\irq.c</FilePath>
+            </File>
+            <File>
+              <FileName>cdc_serial.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\cdc_serial.c</FilePath>
+            </File>
+            <File>
+              <FileName>descriptors.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Source\descriptors.c</FilePath>
+            </File>
+          </Files>
         </Group>
       </Groups>
     </Target>
