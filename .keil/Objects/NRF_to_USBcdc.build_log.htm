@@ -3,12 +3,12 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: £gVision V5.28.0.0
+IDE-Version: £gVision V5.29.0.0
 Copyright (C) 2019 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: ZHU GUAN-RONG, NFU, LIC=----
+License Information: ZHU GUAN-RONG, NFU, LIC=S5ISZ-J506Q-KUI4L-03I22-I5FIG-2XT7D
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.29.0.0
+Toolchain:       MDK-ARM Professional  Version: 5.29.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.06 update 6 (build 750)
 Assembler:       Armasm.exe V5.06 update 6 (build 750)
@@ -17,98 +17,34 @@ Library Manager: ArmAr.exe V5.06 update 6 (build 750)
 Hex Converter:   FromElf.exe V5.06 update 6 (build 750)
 CPU DLL:         SARMCM3.DLL V5.29.0.0
 Dialog DLL:      DARMCM1.DLL V1.19.2.0
-Target DLL:      Nu_Link.dll V3.01
+Target DLL:      Nu_Link.dll V3.02
 Dialog DLL:      TARMCM1.DLL V1.14.1.0
  
 <h2>Project:</h2>
-D:\Project\ARM\NUC240\NRF_to_USBcdc-git\.keil\NRF_to_USBcdc.uvprojx
-Project File Date:  04/04/2020
+D:\Project\ARM\NUC230_240\project\NRF_to_USBcdc-git\.keil\NRF_to_USBcdc.uvprojx
+Project File Date:  04/06/2020
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
-Rebuild target 'Project'
-assembling startup_NUC230_240.s...
-compiling gpio.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\Official\StdDriver\src\gpio.c: 1 warning, 0 errors
-compiling retarget.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\Official\StdDriver\src\retarget.c: 1 warning, 0 errors
-compiling system_NUC230_240.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\Official\Device\Nuvoton\NUC230_240\Source\system_NUC230_240.c: 1 warning, 0 errors
-compiling clk.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\Official\StdDriver\src\clk.c: 1 warning, 0 errors
-compiling rtc.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\Official\StdDriver\src\rtc.c: 1 warning, 0 errors
-compiling spi.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\Official\StdDriver\src\spi.c: 1 warning, 0 errors
-compiling fifo.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\User\src\fifo.c: 1 warning, 0 errors
-compiling sys.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\Official\StdDriver\src\sys.c: 1 warning, 0 errors
-compiling NRF_P2P.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\User\src\NRF_P2P.c: 1 warning, 0 errors
-compiling NRF24L01.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\User\src\NRF24L01.c: 1 warning, 0 errors
-compiling timer.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\Official\StdDriver\src\timer.c: 1 warning, 0 errors
-compiling uart.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\Official\StdDriver\src\uart.c: 1 warning, 0 errors
-compiling usbd.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\Official\StdDriver\src\usbd.c: 1 warning, 0 errors
-compiling main.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\Source\main.c(1): error:  #5: cannot open source input file "USER_LIB.h": No such file or directory
-  #include "USER_LIB.h"
-..\Source\main.c: 1 warning, 1 error
-compiling vMemAlloc.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\libraries\User\src\vMemAlloc.c: 1 warning, 0 errors
-compiling project.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\Source\project.c(2): error:  #5: cannot open source input file "USER_LIB.h": No such file or directory
-  #include <USER_LIB.h>
-..\Source\project.c: 1 warning, 1 error
+Build target 'Project'
 compiling irq.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\Source\irq.c(2): error:  #5: cannot open source input file "USER_LIB.h": No such file or directory
-  #include <USER_LIB.h>
-..\Source\irq.c: 1 warning, 1 error
-compiling cdc_serial.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\Source\cdc_serial.c(12): error:  #5: cannot open source input file "USER_LIB.h": No such file or directory
-  #include <USER_LIB.h>
-..\Source\cdc_serial.c: 1 warning, 1 error
-compiling descriptors.c...
-"no source": Warning:  #3036-D: "C:\Keil_v5\ARM\ARMCC\include" was specified as both a system and non-system include directory -- the non-system entry will be ignored
-..\Source\descriptors.c: 1 warning, 0 errors
-".\Objects\NRF_to_USBcdc.axf" - 4 Error(s), 19 Warning(s).
+linking...
+Program Size: Code=15924 RO-data=948 RW-data=384 ZI-data=6136  
+".\Objects\NRF_to_USBcdc.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: Nuvoton
-                http://www.nuvoton.com/hq/enu/Documents/KEILSoftwarePack/Nuvoton.NuMicro_DFP.1.3.5.pack
-                Nuvoton.NuMicro_DFP.1.3.5
+                http://www.nuvoton.com/hq/enu/Documents/KEILSoftwarePack/Nuvoton.NuMicro_DFP.1.3.7.pack
+                Nuvoton.NuMicro_DFP.1.3.7
                 Nuvoton ARM Cortex-M NuMicro Family Device Support
 
 <h2>Collection of Component include folders:</h2>
   .\RTE\_Project
-  C:\Users\User\AppData\Local\Arm\Packs\Nuvoton\NuMicro_DFP\1.3.5\Device\NUC230_240\Include
+  C:\Users\ZGR\AppData\Local\Arm\Packs\Nuvoton\NuMicro_DFP\1.3.7\Device\NUC230_240\Include
 
 <h2>Collection of Component Files used:</h2>
-Target not created.
-Build Time Elapsed:  00:00:03
+Build Time Elapsed:  00:00:00
 </pre>
 </body>
 </html>

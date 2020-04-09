@@ -30,3 +30,5 @@
 .\objects\descriptors.o: ..\libraries\Official\StdDriver\inc\ACMP.h
 .\objects\descriptors.o: ..\libraries\Official\StdDriver\inc\EBI.h
 .\objects\descriptors.o: ..\include\cdc_serial.h
+.\objects\descriptors.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\descriptors.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

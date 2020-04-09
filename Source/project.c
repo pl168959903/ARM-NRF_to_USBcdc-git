@@ -1,5 +1,5 @@
 
-#include <project.h>
+#include "project.h"
 
 void PinSetup( void ) {
     // UART0
@@ -24,6 +24,8 @@ void ClkSetup( void ) {
 
     // SPI clock
     CLK_SetModuleClock( SPI1_MODULE, CLK_CLKSEL1_SPI1_S_PLL, MODULE_NoMsk );
+
+    //USB clock
     CLK_SetModuleClock( USBD_MODULE, 0, CLK_CLKDIV_USB( 3 ) );
 }
 void GpioSetup( void ) {
@@ -50,4 +52,19 @@ void NVIC_Init( void ) {
 }
 void UsbSetup( void ) {
     CLK_EnableModuleClock( USBD_MODULE );
+    VCOM_Init();
+    USBD_Open(&gsInfo, VCOM_ClassRequest, NULL);
+}
+void DelayUs( uint32_t us ) {
+    uint32_t delayMaxTime = 16777216 / ( CLK_GetCPUFreq() / 1000000 );
+    do {
+        if ( us > delayMaxTime ) {
+            CLK_SysTickDelay( delayMaxTime );
+            us -= delayMaxTime;
+        }
+        else {
+            CLK_SysTickDelay( us );
+            us = 0;
+        }
+    } while ( us > 0 );
 }

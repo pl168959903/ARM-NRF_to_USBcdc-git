@@ -55,6 +55,11 @@
 
 /************************************************/
 
+#include "NUC230_240.h"
+#include <stdint.h>
+#include <stdlib.h>
+#include <stdarg.h>
+
 
 /* for CDC class */
 /* Line coding structure
@@ -76,6 +81,8 @@ extern STR_VCOM_LINE_CODING gLineCoding;
 /*-------------------------------------------------------------*/
 void VCOM_Init(void);
 void VCOM_ClassRequest(void);
+void VCOM_Tx( uint8_t* buf, size_t size );
+int vcomPrintf(const char *fmt, ...) ;
 
 void EP2_Handler(void);
 void EP3_Handler(void);

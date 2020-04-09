@@ -1,9 +1,10 @@
 #include "cdc_serial.h"
-#include "NUC230_240.h"
+#include <stdarg.h>
+#include <stdio.h>
 
-
-static STR_VCOM_LINE_CODING gLineCoding = {0, 0, 0, 8};
-static uint16_t vcom_ctrlSignal;
+static STR_VCOM_LINE_CODING gLineCoding = { 0, 0, 0, 8 };
+static uint16_t             vcom_ctrlSignal;
+volatile uint8_t            vcom_txReady = 1;
 
 /*--------------------------------------------------------------------------*/
 
@@ -206,48 +207,30 @@ void VCOM_ClassRequest( void ) {
         }
     }
 }
-
-uint8_t vcom_push_data( uint8_t* buf, uint32_t sum ) {
-    uint8_t dataSize = 0;
-    while ( ( sum-- ) && ( vcom_txFifoSize < FIFO_SIZE ) ) {
-        vcom_txFifo[ vcom_txFifoTail++ ] = *( buf + dataSize );
-        if ( vcom_txFifoTail >= FIFO_SIZE )
-            vcom_txFifoTail = 0;
-        dataSize++;
-    }
-    __set_PRIMASK( 1 );
-    vcom_txFifoSize += dataSize;
-    __set_PRIMASK( 0 );
-    return dataSize;
-}
-void vcom_tx_trigger() {
-    static uint8_t trigger_data_size = 0;
-    uint8_t        i, dataSize;
-    uint8_t        zero_packet_flag = 0;
-
-    trigger_data_size = vcom_txFifoSize;
-    while ( trigger_data_size || zero_packet_flag ) {
-        zero_packet_flag = 0;
-        while ( !vcom_txReady )
-            ;
-        dataSize = trigger_data_size;
-        if ( dataSize > EP2_MAX_PKT_SIZE )
-            dataSize = EP2_MAX_PKT_SIZE;
-        for ( i = 0; i < dataSize; i++ ) {
-            vcom_txBuf[ i ] = vcom_txFifo[ vcom_txFifoHead++ ];
-            if ( vcom_txFifoHead >= FIFO_SIZE )
-                vcom_txFifoHead = 0;
-        }
-        trigger_data_size -= dataSize;
-        __set_PRIMASK( 1 );
-        vcom_txFifoSize -= dataSize;
-        __set_PRIMASK( 0 );
-
+void VCOM_Tx( uint8_t* buf, size_t size ) {
+    size_t i;
+    size_t sendSize;
+    for ( i = 0; size > 0; i++ ) {
+        while ( vcom_txReady == 0 ) {};
+        sendSize = ( size > EP2_MAX_PKT_SIZE ) ? EP2_MAX_PKT_SIZE : size;
+        USBD_MemCopy( ( uint8_t* )( USBD_BUF_BASE + USBD_GET_EP_BUF_ADDR( EP2 ) ), buf, sendSize );
+        USBD_SET_PAYLOAD_LEN( EP2, sendSize );
         vcom_txReady = 0;
-        USBD_MemCopy( ( uint8_t* )( USBD_BUF_BASE + USBD_GET_EP_BUF_ADDR( EP2 ) ), ( uint8_t* )vcom_txBuf, dataSize );
-        USBD_SET_PAYLOAD_LEN( EP2, dataSize );
-        if ( dataSize == EP2_MAX_PKT_SIZE ) {
-            zero_packet_flag = 1;
-        }
+        buf          = ( uint8_t* )( ( size_t )buf + sendSize );
+        size -= sendSize;
     }
+    if ( USBD_GET_PAYLOAD_LEN( EP2 ) == EP2_MAX_PKT_SIZE ) {
+        while ( vcom_txReady == 0 ) {};
+        USBD_SET_PAYLOAD_LEN( EP2, 0 );
+    }
+}
+int vcomPrintf( const char* fmt, ... ) {
+    int     i;
+    char    buf[ 256 ];
+    va_list aptr;
+    va_start( aptr, fmt );
+    i = vsprintf( buf, fmt, aptr );
+    va_end( aptr );
+    VCOM_Tx( ( uint8_t* )buf, i );
+    return i;
 }

@@ -3,39 +3,44 @@
 #define __USER_LIB_H__
 
 #ifdef __cplusplus
-extern "C"
-{
+extern "C" {
 #endif
-	
 
+#define USER_CFG_NRF24L01_0_SPI SPI1
 
 #define PLL_CLOCK 72000000
 
 /*---------------------------------------------------------------------------------------------------------*/
-//Default
+// Default
+#include <stdbool.h>
 #include <stdint.h>
 #include <stdlib.h>
-#include <stdbool.h>
 
 /*---------------------------------------------------------------------------------------------------------*/
-//Official
+// Official
 #include "NUC230_240.h"
 #include "cdc_serial.h"
-	
+
 /*---------------------------------------------------------------------------------------------------------*/
 
-#include "IRQ.h"
 #include "Bridging.h"
 #include "FIFO.h"
-#include "NRF_P2P.h"
+#include "IRQ.h"
 #include "NRF24L01.h"
+#include "NRF_P2P.h"
 #include "vMemAlloc.h"
-
 
 /*---------------------------------------------------------------------------------------------------------*/
 
-extern FIFO_T * g_stVcomRx;
-extern uint8_t vcom_txReady;
+extern SPI_Func_T        g_stSpi1;
+extern FIFO_T*           g_stVcomRx;
+extern FIFO_T*           g_stNrfRx;
+extern NRF_T*            g_stNrf0;
+extern NRFP2P_CHANNEL_T* g_stNrfP1;
+extern volatile uint8_t  vcom_txReady;
+
+void SetCE( void );
+void ResetCE( void );
 
 void PinSetup( void );
 void ClkSetup( void );
@@ -44,5 +49,6 @@ void SpiSetup( void );
 void UartSetup( void );
 void NVIC_Init( void );
 void UsbSetup( void );
+void DelayUs( uint32_t us );
 
-#endif //__USER_LIB_H__
+#endif  //__USER_LIB_H__

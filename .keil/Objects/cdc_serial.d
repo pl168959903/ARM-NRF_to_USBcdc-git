@@ -1,5 +1,5 @@
 .\objects\cdc_serial.o: ..\Source\cdc_serial.c
-.\objects\cdc_serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\cdc_serial.o: ..\include\cdc_serial.h
 .\objects\cdc_serial.o: ..\libraries\Official\Device\Nuvoton\NUC230_240\Include\NUC230_240.h
 .\objects\cdc_serial.o: ..\libraries\Official\CMSIS\Include\core_cm0.h
 .\objects\cdc_serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
@@ -30,3 +30,6 @@
 .\objects\cdc_serial.o: ..\libraries\Official\StdDriver\inc\CLK.h
 .\objects\cdc_serial.o: ..\libraries\Official\StdDriver\inc\ACMP.h
 .\objects\cdc_serial.o: ..\libraries\Official\StdDriver\inc\EBI.h
+.\objects\cdc_serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+.\objects\cdc_serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\cdc_serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
