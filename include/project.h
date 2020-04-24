@@ -39,8 +39,12 @@ extern NRF_T*            g_stNrf0;
 extern NRFP2P_CHANNEL_T* g_stNrfP1;
 extern volatile uint8_t  vcom_txReady;
 
+extern const uint8_t     p1Addr[ 5 ];
+extern const uint8_t     CameraAddr[ 5 ];
+
 void SetCE( void );
 void ResetCE( void );
+void NrfDelay(uint32_t time);
 
 void PinSetup( void );
 void ClkSetup( void );
@@ -49,6 +53,7 @@ void SpiSetup( void );
 void UartSetup( void );
 void NVIC_Init( void );
 void UsbSetup( void );
+void NrfSetup(void);
 void DelayUs( uint32_t us );
 
 #endif  //__USER_LIB_H__

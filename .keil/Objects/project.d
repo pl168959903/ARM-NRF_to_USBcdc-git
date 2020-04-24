@@ -33,12 +33,12 @@
 .\objects\project.o: ..\libraries\Official\StdDriver\inc\ACMP.h
 .\objects\project.o: ..\libraries\Official\StdDriver\inc\EBI.h
 .\objects\project.o: ..\include\cdc_serial.h
-.\objects\project.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
-.\objects\project.o: ..\libraries\User\inc\Bridging.h
 .\objects\project.o: ..\libraries\User\inc\FIFO.h
 .\objects\project.o: ..\libraries\User\inc\vMemAlloc.h
 .\objects\project.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\project.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\project.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
+.\objects\project.o: ..\libraries\User\inc\Bridging.h
 .\objects\project.o: ..\include\IRQ.h
 .\objects\project.o: ..\libraries\User\inc\NRF24L01.h
 .\objects\project.o: ..\libraries\User\inc\NRF_P2P.h

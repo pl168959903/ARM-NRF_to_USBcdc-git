@@ -56,6 +56,7 @@
 /************************************************/
 
 #include "NUC230_240.h"
+#include "FIFO.h"
 #include <stdint.h>
 #include <stdlib.h>
 #include <stdarg.h>
@@ -82,6 +83,7 @@ extern STR_VCOM_LINE_CODING gLineCoding;
 void VCOM_Init(void);
 void VCOM_ClassRequest(void);
 void VCOM_Tx( uint8_t* buf, size_t size );
+void VCOM_TxFifo( FIFO_T* fifo );
 int vcomPrintf(const char *fmt, ...) ;
 
 void EP2_Handler(void);

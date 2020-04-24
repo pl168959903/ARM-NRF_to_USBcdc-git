@@ -2,14 +2,14 @@
 #include "project.h"
 
 // VCOM
-FIFO_T* g_stVcomRx;
+FIFO_T*           g_stVcomRx;
 
 // NRF
 FIFO_T*           g_stNrfRx;
 NRF_T*            g_stNrf0;
 NRFP2P_CHANNEL_T* g_stNrfP1;
-const uint8_t     p1Addr[ 5 ]     = { 0x00, 0x79, 0x02, 0x08, 0x11 };
-const uint8_t     CameraAddr[ 5 ] = { 0x01, 0x79, 0x02, 0x08, 0x11 };
+const uint8_t p1Addr[ 5 ]     = { 0x00, 0x79, 0x02, 0x08, 0x11 };
+const uint8_t CameraAddr[ 5 ] = { 0x01, 0x79, 0x02, 0x08, 0x11 };
 
 void PinSetup( void ) {
     // UART0
@@ -35,7 +35,7 @@ void ClkSetup( void ) {
     // SPI clock
     CLK_SetModuleClock( SPI1_MODULE, CLK_CLKSEL1_SPI1_S_PLL, MODULE_NoMsk );
 
-    // USB clock
+    //USB clock
     CLK_SetModuleClock( USBD_MODULE, 0, CLK_CLKDIV_USB( 3 ) );
 }
 void GpioSetup( void ) {
@@ -59,19 +59,18 @@ void UartSetup( void ) {
 void NVIC_Init( void ) {
     NVIC_EnableIRQ( EINT1_IRQn );
     NVIC_EnableIRQ( USBD_IRQn );
-    NVIC_SetPriority( USBD_IRQn, 0 );
-    NVIC_SetPriority( EINT1_IRQn, 1 );
+		NVIC_SetPriority(USBD_IRQn, );
 }
 void UsbSetup( void ) {
     CLK_EnableModuleClock( USBD_MODULE );
     VCOM_Init();
-    USBD_Open( &gsInfo, VCOM_ClassRequest, NULL );
+    USBD_Open(&gsInfo, VCOM_ClassRequest, NULL);
 }
-void NrfSetup( void ) {
-    g_stNrfRx = FIFO_New( 1024, NULL );
-    g_stNrf0  = NRF_New( &g_stSpi1, &SetCE, &ResetCE, &NrfDelay );
+void NrfSetup(void){
+    g_stNrfRx  = FIFO_New( 1024, NULL );
+    g_stNrf0   = NRF_New( &g_stSpi1, &SetCE, &ResetCE, &NrfDelay );
     nrfP2P_InitNrf( g_stNrf0, 0x50 );
-    g_stNrfP1 = nrfP2P_NewChannel( g_stNrf0, 1, ( uint8_t* )p1Addr, true, true );
+    g_stNrfP1 = nrfP2P_NewChannel( g_stNrf0, 4, ( uint8_t* )p1Addr, true, true );
     nrfP2P_EnableTxDypw( g_stNrf0 );
     nrfP2P_EnableTxAutoAck( g_stNrf0, ( uint8_t* )CameraAddr );
     NRF_RxMode( g_stNrf0 );

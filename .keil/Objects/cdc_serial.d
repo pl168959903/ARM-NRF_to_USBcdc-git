@@ -30,6 +30,10 @@
 .\objects\cdc_serial.o: ..\libraries\Official\StdDriver\inc\CLK.h
 .\objects\cdc_serial.o: ..\libraries\Official\StdDriver\inc\ACMP.h
 .\objects\cdc_serial.o: ..\libraries\Official\StdDriver\inc\EBI.h
+.\objects\cdc_serial.o: ..\libraries\User\inc\FIFO.h
+.\objects\cdc_serial.o: ..\libraries\User\inc\vMemAlloc.h
 .\objects\cdc_serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
-.\objects\cdc_serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h
 .\objects\cdc_serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\cdc_serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+.\objects\cdc_serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\cdc_serial.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdarg.h

@@ -11,13 +11,12 @@ void EINT1_IRQHandler( void ) {
             uint32_t len = NRF_ReadRxPayloadWide( g_stNrf0 );
             NRF_RxPayload(g_stNrf0, data, len);
             for ( i = 0; i < len; i++ ) {
-                FIFO_ByteIn(g_stNrfRx, (data + i));
+                FIFO_ByteIn(g_stNrfRx, data + i);
             }
-            NRF_WriteRegByte( g_stNrf0, NRF_REG_STATUS, g_stNrf0->statusReg );
         }
         if ( g_stNrf0->statusReg & NRF_REG_STATUS_TX_DS_MSK ) {}
         if ( g_stNrf0->statusReg & NRF_REG_STATUS_MAX_RT_MSK ) {}
-        
+        NRF_WriteRegByte( g_stNrf0, NRF_REG_STATUS, g_stNrf0->statusReg );
         GPIO_CLR_INT_FLAG( PB, BIT15 );
     }
 }

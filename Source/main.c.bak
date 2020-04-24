@@ -20,7 +20,7 @@ int main( void ) {
     USBD_Start();
     do{
         FIFO_Rst( g_stVcomRx );
-        DelayUs(100000);
+        DelayUs(500000);
     }while(FIFO_CmdCheck( g_stVcomRx, ( uint8_t* )"CMD:START", 0, 9, 9, 0, false ) == false);
     vcomPrintf( "SYS:OK\n" );
     FIFO_Rst( g_stVcomRx );

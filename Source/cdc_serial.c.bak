@@ -223,11 +223,11 @@ void VCOM_Tx( uint8_t* buf, size_t size ) {
 }
 
 void VCOM_TxFifo( FIFO_T* fifo ) {
-    while ( FIFO_IsEmpty( fifo ) == false ) {
-			size_t  sendSize = 0; 
+    size_t  sendSize = 0; 
     uint8_t temp[ EP2_MAX_PKT_SIZE ] = {0};
+    while ( FIFO_IsEmpty( fifo ) == false ) {
         while ( sendSize < EP2_MAX_PKT_SIZE && FIFO_IsEmpty( fifo ) == false ) {
-            FIFO_ByteOut( fifo, temp+sendSize );
+            FIFO_ByteOut( fifo, temp+] );
             sendSize++;
         }
         VCOM_Tx(temp, sendSize);

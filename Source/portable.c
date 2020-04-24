@@ -26,6 +26,10 @@ void SPI1_Dummy( void ) {
 }
 SPI_Func_T g_stSpi1 = { SPI1_WriteByte, SPI1_ReadByte, SPI1_SS, SPI1_DSS, SPI1_Dummy };
 
+void NrfDelay(uint32_t time){
+    DelayUs(time);
+}
+
 void SetCE(void){
     PA15 = 1;
     DelayUs(10);
