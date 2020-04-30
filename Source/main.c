@@ -51,6 +51,11 @@ void CmdDecoder( void ) {
                             CmdSend( 11 );
                         }
                     }
+                    if ( FIFO_CmdCheck( g_stVcomRx, ( uint8_t* )"GPS", 8, 11, 3, 0, false ) ) {
+                        if ( FIFO_WaitData( g_stVcomRx, 11, 0 ) ) {
+                            CmdSend( 11 );
+                        }
+                    }
                 }
                 if ( FIFO_CmdCheck( g_stVcomRx, ( uint8_t* )"SET:", 4, 8, 4, 0, false ) ) {
                     if ( FIFO_CmdCheck( g_stVcomRx, ( uint8_t* )"CYC:", 8, 12, 4, 0, false ) ) {
